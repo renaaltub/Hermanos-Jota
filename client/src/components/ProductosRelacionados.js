@@ -17,7 +17,7 @@ export default function ProductosRelacionados({ producto, anadirFuncion}) {
     data: productos,
     error,
     isLoading
-  } = useSWR('https://hermanos-jota-69u8.onrender.com/api/productos', ProdRelacionados);
+  } = useSWR('http://localhost:4000/api/productos', ProdRelacionados);
 
   // We'll compute the shuffled selection once per page load and keep it.
   const [seleccionados, setSeleccionados] = useState([]);

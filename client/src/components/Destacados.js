@@ -18,7 +18,7 @@ function Destacados({anadirFuncion}) {
         data: featuredProducts,
         error,
         isLoading
-    } = useSWR('https://hermanos-jota-69u8.onrender.com/api/productos?limit=3', productosDestacados);
+    } = useSWR('http://localhost:4000/api/productos?limit=3', productosDestacados);
 
     if (error) return <p className="mensajeswr">Hubo un problema al cargar los productos. Intenta de nuevo más tarde</p>;
     if (isLoading) return <p className="mensajeswr">Cargando...</p>;

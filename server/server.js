@@ -1,7 +1,7 @@
 const express = require('express');
 const contactoRoutes = require('./routes/contactoRoutes')
 const productoRoutes = require('./routes/productoRoutes')
-const logger = require('./logger')
+const logger = require('./middlewares/logger')
 const cors = require('cors')
 const path = require("path");
 const mongoose = require('mongoose')
@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 4000
 
 //Verifica que la única dirección desde la cual se conecte sea el front corriendo en el puerto 3000
 app.use(cors({
-  origin: 'https://hermanos-jota-theta.vercel.app'
+  origin: 'http://localhost:3000'
 }))
 
 app.use(express.json())

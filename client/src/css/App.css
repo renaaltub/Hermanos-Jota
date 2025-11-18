@@ -1102,7 +1102,7 @@ footer h4{
     justify-content: center;
     align-items: center;
 
-    background-image: url(https://hermanos-jota-69u8.onrender.com/img/tablas-madera.jpg);
+    background-image: url(http://localhost:4000/img/tablas-madera.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
@@ -1432,7 +1432,7 @@ input[type="file"]{
         width: 100%;
         height: 28.125rem;
         background-image: linear-gradient(to left, transparent 60%, var(--alabastro)),
-        url('https://hermanos-jota-69u8.onrender.com/img/sala.jpg');
+        url('http://localhost:4000/img/sala.jpg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -1781,7 +1781,7 @@ input[type="file"]{
     /* Hero */
     .hero-image{
         height: 25rem;
-        background-image: url('https://hermanos-jota-69u8.onrender.com/img/sala.jpg');
+        background-image: url('http://localhost:4000/img/sala.jpg');
         box-shadow: 0 0 20px #a0512d8a;
     }
 

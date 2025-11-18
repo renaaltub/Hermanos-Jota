@@ -16,7 +16,7 @@ function Navbar({contador}){
         <header>
             {/* Logo */}
             <Link to="/" className='logo' onClick={() => {setVisibilidad(false)}}>
-                <img src='https://hermanos-jota-69u8.onrender.com/img/logoinvertido.svg' alt="Logo"/>
+                <img src='http://localhost:4000/img/logoinvertido.svg' alt="Logo"/>
                 <p className='nombre-marca'>Hermanos JOTA</p>
             </Link>
 

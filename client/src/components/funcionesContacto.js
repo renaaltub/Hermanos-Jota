@@ -48,7 +48,7 @@ export async function enviarFormulario({evento, datos, setDatos, setErrores, set
     if (!datosValidos) {return}
     
     try {
-        const respuesta = await fetch(`https://hermanos-jota-69u8.onrender.com/api/contacto`, {
+        const respuesta = await fetch(`http://localhost:4000/api/contacto`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(datos)
