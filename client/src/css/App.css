@@ -1092,7 +1092,50 @@ footer h4{
     text-align: center;
 }
 
-/* ! CONTACTO PAGE Y NUEVO PRODUCTO PAGE*/
+/* ! REGISTRO Y LOGIN PAGES */
+
+#registro-main {
+
+    background-image: url(http://localhost:4000/img/tablas-madera.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+
+    width: 100%;
+    margin-bottom: 0;
+
+    font-family: var(--fuente-primaria);
+    
+}
+
+#registro-card {
+    background-color: var(--alabastro);
+    color: var(--siena-tostado);
+
+    border-radius: 30px;
+    width: 90vw;
+    padding: 7.5%;
+    margin: 7.5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+#registro-form div p {
+    font-size: 0.9rem;
+    padding-top: 0.25rem;
+}
+
+.registro-label {
+    font-weight: bold;
+}
+
+/* ! CONTACTO PAGE Y NUEVO PRODUCTO PAGE */
 
 /* Main */
 
@@ -1204,7 +1247,7 @@ footer h4{
     margin-top: 0.75rem;
 }
 
-#contacto-form {
+#contacto-form, #registro-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1222,7 +1265,7 @@ footer h4{
     width: 100%;
 }
 
-.contacto-label, #contacto-button, .productoNuevo-label, #productoNuevo-button {
+.contacto-label, #contacto-button, .productoNuevo-label, #productoNuevo-button, .registro-label, #registro-button {
     font-size: 1rem;
 }
 
@@ -1230,7 +1273,7 @@ footer h4{
     font-weight: 500;
 }
 
-.contacto-input, #mensaje-form, #contacto-button, .productoNuevo-input, #descripcion-form, #descripcionDestacado-form, #productoNuevo-button {
+.contacto-input, #mensaje-form, #contacto-button, .productoNuevo-input, #descripcion-form, #descripcionDestacado-form, #productoNuevo-button, #registro-button, .registro-input {
     border: none;
     width: 100%;
     resize: none;
@@ -1239,18 +1282,18 @@ footer h4{
     font-size: 0.9rem;
 }
 
-.contacto-input, #contacto-button, .productoNuevo-input, #productoNuevo-button {
+.contacto-input, #contacto-button, .productoNuevo-input, #productoNuevo-button, #registro-button, .registro-input {
     height: 2.5rem;
 }
 
-#contacto-button, #productoNuevo-button {
+#contacto-button, #productoNuevo-button, #registro-button {
     background-color: var(--vara-oro);
     border: none;
     color: white;
     cursor: pointer;
 }
 
-.contacto-input:focus, #mensaje-form:focus, .productoNuevo-input:focus, #descripcion-form:focus, #descripcionDestacado-form:focus {
+.contacto-input:focus, #mensaje-form:focus, .productoNuevo-input:focus, #descripcion-form:focus, #descripcionDestacado-form:focus, .registro-input {
     outline: 2px solid var(--siena-tostado);
 }
 
@@ -1919,6 +1962,13 @@ input[type="file"]{
         transform: translateX(20px);
     }
 
+    /* ! REGISTRO Y LOGIN PAGES */
+    
+    #registro-card {
+        width: 75%;
+        padding: 5%;
+    }
+
     /* ! CONTACTO PAGE Y NUEVO PRODUCTO PAGE */
 
     /* Main */
@@ -1931,11 +1981,11 @@ input[type="file"]{
         padding: 0;
     }
 
-    .contacto-input, #contacto-button, .productoNuevo-input, #productoNuevo-button {
+    .contacto-input, #contacto-button, .productoNuevo-input, #productoNuevo-button, #registro-button, .registro-input {
         height: 3rem;
     }
 
-    #contacto-button, #productoNuevo-button {
+    #contacto-button, #productoNuevo-button, #registro-button {
         font-size: 1rem;
     }
 
@@ -1947,6 +1997,13 @@ input[type="file"]{
 
 @media (min-width: 1440px) {
     
+    /* ! REGISTRO Y LOGIN PAGES */
+    
+    #registro-card {
+        width: 50%;
+        padding: 4%;
+    }
+
     /* ! CONTACTO PAGE */
 
     /* Main */

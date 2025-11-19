@@ -12,7 +12,7 @@ const registerUser = async (req, res) => {
     // 2. Verificamos si el usuario o email ya existen
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
     if (existingUser) {
-      return res.status(400).json({ message: 'El email o nombre de usuario ya está en uso.' });
+      return res.status(409).json({ message: 'El email o nombre de usuario ya está en uso.' });
     }
  
     // 3. Hasheamos la contraseña

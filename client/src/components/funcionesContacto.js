@@ -73,16 +73,5 @@ export async function enviarFormulario({evento, datos, setDatos, setErrores, set
     } catch (error) {
         console.error("Error:", error)
         alert("Se produjo un error al enviar el formulario.")
-    }
-    
-
-    //Para mostrar antes de implementar la comunicación con el backend
-    /*setExitoso(true)
-    setTimeout(() => {
-        setExitoso(false)
-        setDatos({nombre: "", email: "", mensaje: ""})
-        setErrores({nombre: "", email: "", mensaje: ""})
-        setIntento(false)
-    }, 3000)*/
-    
+    }    
 }

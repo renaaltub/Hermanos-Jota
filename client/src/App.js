@@ -9,6 +9,7 @@ import {Routes, Route} from 'react-router-dom'
 import CrearProducto from './pages/CrearProducto';
 import AdminPanel from './pages/AdminPanel';
 import ProductDetailPage from './pages/ProductDetailPage';
+import Registro from './pages/Registro';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       
       <Routes>
           <Route path='/' element={<PaginaInicio anadirFuncion={anadirAlCarrito} />}/>
+          <Route path='/registro' element={<Registro />}/>
           <Route path='/productos' element={<Catalogo anadirFuncion={anadirAlCarrito} />}/>
           <Route path='/productos/:id' element={<ProductDetailPage anadirFuncion={anadirAlCarrito} />}/>
           <Route path='/contacto' element={<Contacto/>}/>
