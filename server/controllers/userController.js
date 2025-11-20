@@ -38,10 +38,11 @@ const registerUser = async (req, res) => {
  
   } catch (error) {
     res.status(500).json({ message: 'Error interno del servidor', error });
-  }};
+  }
+}
 
 
-  const loginUser = async (req, res) => {
+const loginUser = async (req, res) => {
   try {
     // 1. Buscamos al usuario por su email
     const user = await User.findOne({ email: req.body.email });
@@ -49,20 +50,20 @@ const registerUser = async (req, res) => {
       // Usamos un mensaje genérico por seguridad
       return res.status(400).json({ message: 'Credenciales inválidas' });
     }
- 
+
     // 2. Comparamos la contraseña enviada con la hasheada en la BD
     const isValidPassword = await bcrypt.compare(req.body.password, user.password);
     if (!isValidPassword) {
       return res.status(400).json({ message: 'Credenciales inválidas' });
     }
- 
+
     // 3. Si las credenciales son correctas, generamos el JWT
     const token = jwt.sign(
       { id: user._id, username: user.username }, // Payload: datos que queremos en el token
       process.env.JWT_SECRET,                   // La clave secreta desde .env
       { expiresIn: '1h' }                       
     );
- 
+
     // 4. Respondemos con el token y datos del usuario (sin el password)
     res.status(200).json({
       token,
@@ -72,13 +73,18 @@ const registerUser = async (req, res) => {
         email: user.email,
       },
     });
- 
+
   } catch (error) {
     res.status(500).json({ message: 'Error interno del servidor' });
   }
 }
 
+const getUserProfile = async (req, res) => {
+  res.json({ message: `Bienvenido al perfil, ${req.user.username}` });
+}
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    getUserProfile
 }

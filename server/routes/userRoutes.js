@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const authMiddleware = require('../middleware/authMiddleware'); 
+const authMiddleware = require('../middlewares/authMiddleware'); 
 const userController = require('../controllers/userController'); 
  
 // RUTA DE REGISTRO

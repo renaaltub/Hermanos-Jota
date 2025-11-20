@@ -67,7 +67,7 @@ export async function enviarFormulario({
 
     try {
 
-        const respuesta = await fetch(`http://localhost:4000/register`, {
+        const respuesta = await fetch(`http://localhost:4000/api/usuarios/register`, {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(datos)
