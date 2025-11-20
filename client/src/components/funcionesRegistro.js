@@ -1,4 +1,4 @@
-// ---VALIDACIÓN Y ENVÍO DEL FORM (PRODUCTO NUEVO)---
+// ---VALIDACIÓN Y ENVÍO DEL FORM (REGISTRO)---
 
 // -- FUNCIÓN VALIDADORA DE CAMPOS -- //
 export function validacionCampos({
@@ -40,7 +40,7 @@ export function alertas({
 }
 
 
-// -- FUNCIÓN ENCARGADA DE ENVIAR EL FORMULARIO DE PRODUCTO AL BACKEND -- //
+// -- FUNCIÓN ENCARGADA DE ENVIAR EL FORMULARIO DE REGISTRO AL BACKEND -- //
 export async function enviarFormulario({
     evento,
     datos,

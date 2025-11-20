@@ -1,29 +1,24 @@
 import { useState } from "react"
-import {useNavigate} from 'react-router-dom'
-import { validacionCampos, alertas, enviarFormulario } from "./funcionesRegistro"
-import { OverlayRegistro } from "./OverlayRegistro"
+import { useNavigate } from 'react-router-dom'
+import { enviarFormulario } from "./funcionesLogin"
+import { OverlayLogin } from "./OverlayLogin"
 
-function RegistroFormulario() {
+function LoginFormulario() {
 
     const navigate = useNavigate()
 
     // --ESTADOS -- //
     //Estado de los datos del form
     const [datos, setDatos] = useState({
-        username: "",
         email: "",
         password: ""
     })
 
     //Estado que almacenará los errores de validación de los campos
     const [errores, setErrores] = useState({
-        username: "",
         email: "",
         password: ""
     })
-
-    //Estado que controla si el usuario trató de enviar el formulario o no (usado para validación dinámica de campos)
-    const [intento, setIntento] = useState(false)
 
     //Estado que establece si el form fue enviado correctamente
     const [envioExitoso, setExitoso] = useState(false)
@@ -36,32 +31,11 @@ function RegistroFormulario() {
 
         const datosNuevos = { ...datos, [name]: value }
         setDatos(datosNuevos)
-
-        if (intento) {
-            const validaciones = validacionCampos(datosNuevos)
-            const mensajes = alertas(validaciones)
-            setErrores(mensajes)
-        }     
     }
 
     // -- DEVOLUCIÓN DE FORMULARIO -- //
     return (
-        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setIntento, setExitoso, navigate})} noValidate>
-            <div>
-                <label htmlFor="username" className="registro-label">Nombre de usuario</label><br></br>
-                <input 
-                    id="username"
-                    type="text"                 
-                    name="username" 
-                    className="registro-input" 
-                    value={datos.username}
-                    onChange={actualizarDatos}
-                    required
-                />
-                <p>El nombre de usuario debe tener entre 3 y 20 caracteres. Puede contener números, guiones bajos y guiones medios.</p>
-                {errores.username && <p className="error-validacion">{errores.username}</p>}
-            </div>
-
+        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setExitoso, navigate})} noValidate>
             <div>
                 <label htmlFor="email" className="registro-label">Dirección de correo electrónico</label><br></br>
                 <input 
@@ -87,16 +61,15 @@ function RegistroFormulario() {
                     onChange={actualizarDatos}
                     required
                 />
-                <p>La contraseña debe tener mínimo 8 caracteres, una letra mayúscula y un caracter especial (ej.: -, _, %, $, &, *, etc.)</p>
                 {errores.password && <p className="error-validacion">{errores.password}</p>}
             </div>
 
             <div>
-                <button id="registro-button" type="submit">Registrarse</button>
+                <button id="registro-button" type="submit">Iniciar sesión</button>
             </div>
-            {envioExitoso && <OverlayRegistro />}
+            {envioExitoso && <OverlayLogin />}
         </form>
     )
 }
 
-export default RegistroFormulario
+export default LoginFormulario
