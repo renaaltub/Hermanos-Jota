@@ -18,7 +18,7 @@ export default function ProductDetail({ producto, onVolver, anadirFuncion }) {
     if (window.confirm(`¿Estás seguro de que deseas eliminar el producto: ${producto.nombre}?`)) {
       try {
         // 3. Send DELETE request to /api/productos/:id
-        const response = await fetch(`https://hermanos-jota-69u8.onrender.com/api/productos/${producto._id}`, {
+        const response = await fetch(`http://localhost:4000/api/productos/${producto._id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

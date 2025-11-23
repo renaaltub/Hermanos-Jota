@@ -105,7 +105,7 @@ export async function enviarFormulario({
 
     try {
 
-        const respuesta = await fetch(`https://hermanos-jota-69u8.onrender.com/api/productos`, {
+        const respuesta = await fetch(`http://localhost:4000/api/productos`, {
             method: "POST",
             body: formData
         })
@@ -130,7 +130,7 @@ export async function enviarFormulario({
                 descripcion: "",
                 descripcionDestacado: "",
                 precio: "",
-                imagen: "https://hermanos-jota-69u8.onrender.com/img/",
+                imagen: "http://localhost:4000/img/",
                 materiales: "",
                 medidas: "",
                 acabado: "",

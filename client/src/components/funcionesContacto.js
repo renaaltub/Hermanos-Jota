@@ -48,7 +48,7 @@ export async function enviarFormulario({evento, datos, setDatos, setErrores, set
     if (!datosValidos) {return}
     
     try {
-        const respuesta = await fetch(`https://hermanos-jota-69u8.onrender.com/api/contacto`, {
+        const respuesta = await fetch(`http://localhost:4000/api/contacto`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(datos)
@@ -73,16 +73,5 @@ export async function enviarFormulario({evento, datos, setDatos, setErrores, set
     } catch (error) {
         console.error("Error:", error)
         alert("Se produjo un error al enviar el formulario.")
-    }
-    
-
-    //Para mostrar antes de implementar la comunicación con el backend
-    /*setExitoso(true)
-    setTimeout(() => {
-        setExitoso(false)
-        setDatos({nombre: "", email: "", mensaje: ""})
-        setErrores({nombre: "", email: "", mensaje: ""})
-        setIntento(false)
-    }, 3000)*/
-    
+    }    
 }

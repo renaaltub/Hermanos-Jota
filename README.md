@@ -20,7 +20,7 @@ El sistema permite visualizar productos, ver sus detalles, simular un carrito de
 
 ## Producción
 - **Frontend:** https://hermanos-jota-theta.vercel.app/
-- **Backend:** https://hermanos-jota-69u8.onrender.com/
+- **Backend:** http://localhost:4000/
 
 ## Desarrollo (instalación y ejecución local)
 
