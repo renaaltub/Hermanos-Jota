@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard";
 import "../css/App.css";
 
-export default function ProductList({ productos, onVerDetalle, anadirFuncion }) {
+export default function ProductList({ productos, onVerDetalle }) {
   return (
     <div className="grid">
       {productos.map((prod) => (
@@ -9,7 +9,6 @@ export default function ProductList({ productos, onVerDetalle, anadirFuncion }) 
           key={prod._id}
           producto={prod}
           onVerDetalle={onVerDetalle}
-          anadirFuncion={anadirFuncion}
         />
       ))}
     </div>

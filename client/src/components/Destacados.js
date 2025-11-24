@@ -12,7 +12,7 @@ const productosDestacados = (url) => {
     })
 }
 
-function Destacados({anadirFuncion}) {
+function Destacados() {
 
     const {
         data: featuredProducts,
@@ -38,7 +38,7 @@ function Destacados({anadirFuncion}) {
                 <section className="destacados-productos">
                     {featuredProducts.map(product => (
                         <section key={product._id} className="destacados-producto">
-                            <FeaturedProduct producto={product} anadirFuncion={anadirFuncion} />
+                            <FeaturedProduct producto={product}/>
                         </section>
                     ))}
                 </section>

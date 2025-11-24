@@ -4,7 +4,7 @@ import ProductDetail from '../components/ProductDetail';
 import ProductosRelacionados from '../components/ProductosRelacionados';
 
 // Esta página actúa como un "contenedor" para el detalle
-export default function ProductDetailPage({ anadirFuncion }) {
+export default function ProductDetailPage() {
   const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -47,13 +47,11 @@ export default function ProductDetailPage({ anadirFuncion }) {
       <section className="catalogo">
         <ProductDetail
           producto={producto}
-          anadirFuncion={anadirFuncion}
           // Pasa la función de navegación para el botón "Volver"
           onVolver={() => navigate(-1)} 
         />
         <ProductosRelacionados
           producto={producto}
-          anadirFuncion={anadirFuncion}
         />
       </section>
     </main>

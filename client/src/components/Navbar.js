@@ -2,10 +2,14 @@ import '../css/App.css';
 import BurgerMenu from './BurgerMenu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 
-function Navbar({contador}){
+function Navbar(){
+    const {cartItems} = useContext(CartContext);
+    const contador = cartItems.reduce((total, item) => total + item.quantity, 0)
+
     // Menú hamburguesa visibilidad
     const [menuVisible, setVisibilidad] = useState(false);
 

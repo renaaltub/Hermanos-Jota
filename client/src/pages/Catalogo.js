@@ -3,7 +3,7 @@ import ProductList from "../components/ProductList";
 import SearchBar from "../components/SearchBar";
 import "../css/App.css";
 
-export default function Catalogo({ anadirFuncion }) {
+export default function Catalogo() {
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -48,11 +48,7 @@ export default function Catalogo({ anadirFuncion }) {
         {error && <p style={{ color: "red" }}>{error}</p>}
       
     
-          <ProductList
-            productos={productosFiltrados}
-            anadirFuncion={anadirFuncion}
-          />
-        
+          <ProductList productos={productosFiltrados}/>
       </section>
     </main>
   );

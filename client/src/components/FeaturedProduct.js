@@ -2,7 +2,7 @@ import '../css/App.css';
 import ButtonAgregarCarrito from "./ButtonAgregarCarrito";
 import {Link} from 'react-router-dom'
 
-function FeaturedProduct({producto, anadirFuncion}){
+function FeaturedProduct({producto}){
     return (
         <>
             <div className="destacados-img">
@@ -16,7 +16,7 @@ function FeaturedProduct({producto, anadirFuncion}){
                     <Link to={`/productos/${producto._id}`} className="ver-detalle-indexCards">
                         Ver detalle
                     </Link>
-                    <ButtonAgregarCarrito producto={producto} anadirFuncion={anadirFuncion}/>
+                    <ButtonAgregarCarrito producto={producto}/>
                 </div>
             </section>
         </>

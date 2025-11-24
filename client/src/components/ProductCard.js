@@ -3,7 +3,7 @@ import ButtonAgregarCarrito from "./ButtonAgregarCarrito";
 import { Link } from 'react-router-dom';
 
 
-export default function ProductCard({ producto, anadirFuncion }) {
+export default function ProductCard({ producto }) {
   return (
     <div className="card">
       <div className="card-img">
@@ -16,7 +16,7 @@ export default function ProductCard({ producto, anadirFuncion }) {
           <Link to={`/productos/${producto._id}`}> 
             Ver detalle
           </Link>
-          <ButtonAgregarCarrito producto={producto} anadirFuncion={anadirFuncion} />
+          <ButtonAgregarCarrito producto={producto}/>
         </div>
       </div>
     </div>

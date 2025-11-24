@@ -1,7 +1,6 @@
 import './css/App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { useState } from 'react';
 import PaginaInicio from './pages/PaginaInicio';
 import Contacto from './pages/Contacto';
 import Catalogo from './pages/Catalogo';
@@ -14,23 +13,16 @@ import Login from './pages/Login';
 
 
 function App() {
-  const [carrito, setCarrito] = useState([]);
-  
-
-  const anadirAlCarrito = (producto) => {
-    setCarrito([...carrito, producto])
-  }
-
   return (
     <>
-      <Navbar contador={carrito.length} />
+      <Navbar/>
       
       <Routes>
-          <Route path='/' element={<PaginaInicio anadirFuncion={anadirAlCarrito} />} />
+          <Route path='/' element={<PaginaInicio/>} />
           <Route path='/registro' element={<Registro />} />
           <Route path='/login' element={<Login />} />
-          <Route path='/productos' element={<Catalogo anadirFuncion={anadirAlCarrito} />} />
-          <Route path='/productos/:id' element={<ProductDetailPage anadirFuncion={anadirAlCarrito} />} />
+          <Route path='/productos' element={<Catalogo/>} />
+          <Route path='/productos/:id' element={<ProductDetailPage/>} />
           <Route path='/contacto' element={<Contacto/>} />
           <Route path='/admin' element={<AdminPanel />} />
           <Route path='/admin/crear-producto' element={<CrearProducto />} />
