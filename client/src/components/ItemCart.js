@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faAngleDown, faXmark} from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faXmark} from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
@@ -16,14 +16,15 @@ export default function ItemCart({producto}){
                     <section>
                         <h2>{producto.nombre}</h2>
                         <p className='precioItem'>${producto.quantity * producto.precio}</p>
-                        <p>{producto.quantity} {producto.quantity === 1 ? "unidad" : "unidades"}</p>
+                        <div>
+                            <p>Unidades:</p>
+                            <button onClick={() => decreaseItemToCart(producto)} className='decreaseButton'><FontAwesomeIcon icon={faAngleLeft}/></button>
+                            <p className='productQuantity'>{producto.quantity}</p>
+                            <button onClick={() => addItemToCart(producto)} className='incrementButton'><FontAwesomeIcon icon={faAngleRight}/></button>
+                        </div>
                     </section>
                         <p>{producto.descripcionDestacado}</p>
                 </section>
-            </section>
-            <section className="itemButtons">
-                <button onClick={() => addItemToCart(producto)} className='incrementButton'><FontAwesomeIcon icon={faAngleUp}/></button>
-                <button onClick={() => decreaseItemToCart(producto)} className='decreaseButton'><FontAwesomeIcon icon={faAngleDown}/></button>
             </section>
             <button onClick={() => removeItemToCart(producto)} className='quitarProducto'><FontAwesomeIcon icon={faXmark}/></button>
         </>
