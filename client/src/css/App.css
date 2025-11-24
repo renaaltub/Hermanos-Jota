@@ -429,8 +429,6 @@ main{
     transition: transform 0.2s ease;
 }
 
-
-
 .destacados-description{
     display: flex;
     flex-direction: column;
@@ -1409,6 +1407,323 @@ input[type="file"]{
 
 .admin-panel button:hover{
     box-shadow: 0 0 30px #87A96B;
+}
+
+/* ! Carrito Page */
+
+.mainCarrito{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.voidCart{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.voidCart p{
+    font-size: 16px;
+}
+
+.voidCart .textoVoid{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.voidCart button{
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px 10px;
+    color: var(--alabastro);
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #677;
+    cursor: pointer;
+    text-shadow: 0px 0px 10px #555;
+    transition: all 0.3s ease-in-out;
+}
+
+.voidCart button:hover{
+    background-color: #258;
+}
+
+.mainCarrito, .cart{
+    width: 100%;
+    text-align: center;
+}
+
+.mainCarrito > section > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.mainCarrito > section > div button{
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 0px 5px #666;
+    border: none;
+    border-radius: 5px;
+}
+
+.clearCart{
+    background-color: #e55;
+    color: #ddd;
+    transition: all 0.3s ease;
+}
+
+.clearCart:hover{
+    color: #f22;
+    background-color: #411;
+}
+
+.continueBuy{
+    background-color: #899;
+    color: #223;
+    transition: all 0.3s ease;
+}
+
+.continueBuy:hover{
+    background-color: #226;
+    color: #48e;
+}
+
+.mainCarrito h1, .mainCarrito h2, .mainCarrito h3{
+    color: var(--siena-tostado);
+}
+
+.mainCarrito > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.mainCarrito > div div{
+    height: 2px;
+    width: 50%;
+    background-image: linear-gradient(to left, transparent, #A0522D, transparent);
+}
+
+.totalResume, .precioItem{
+    color: var(--siena-tostado);
+    font-weight: 700;
+}
+
+.cart{
+    display: flex;
+    gap: 3.125rem;
+    padding: 20px;
+}
+
+.cartResume{
+    display: flex;
+    flex-direction: column;
+    gap: .9375rem;
+    width: 450px;
+    height: min-content;
+    padding: 15px;
+    border: 2px solid var(--siena-tostado);
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px #999;
+}
+
+.cartResume div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .3125rem;
+}
+
+.cartResume div div{
+    height: 2px;
+    width: 90%;
+    background-image: linear-gradient(to left, transparent, #A0522D, transparent);
+}
+
+.cartResume h3, .cartResume p:not(.totalResume){
+    text-align: left;
+}
+
+.cartResume ul{
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+}
+
+.cartResume ul li{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-bottom: 2px solid #555;
+    transition: all 0.3s ease;
+}
+
+.cartResume ul li button{
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cartResume ul li button .svg-inline--fa{
+    color: #444;
+    font-size: 16px;
+}
+
+.cartResume ul li:hover button{
+    display: block;
+}
+
+.cartResume ul li:hover{
+    background-color: #bbb;
+    border-radius: 5px 5px 10px 10px;
+}
+
+.buyButton{
+    padding: 10px 0px;
+    border: none;
+    background-color: var(--verde-salvia);
+    border: 1px solid #181;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--verde-salvia);
+    font-size: 16px;
+    font-weight: bold;
+    color: #131;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buyButton:hover{
+    background-color: #131;
+    border: 1px solid var(--verde-salvia);
+    color: var(--verde-salvia);
+}
+
+.itemProduct{
+    display: flex;
+    gap: 1.25rem;
+    text-align: start;
+}
+
+.itemsCart{
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.itemCartCard{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    padding: 20px;
+    background-color: var(--alabastro);
+    border-bottom: 3px solid var(--siena-tostado);
+    border-top: 3px solid var(--siena-tostado);
+    border-radius: 4.6875rem;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 0px 10px #999;
+}
+
+.itemCartImg{
+    width: 100px;
+    height: auto;
+}
+
+.itemCartImg img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease;
+    filter: drop-shadow(0px 0px 10px #888);
+}
+
+.itemCartImg img:hover{
+    transform: scale(1.2);
+}
+
+.itemCartData{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.itemCartData > section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    height: 100%;
+    width: 240px;
+    padding: 0 25px;
+    border-right: 2px solid var(--siena-tostado);
+    border-left: 2px solid var(--siena-tostado);
+}
+
+.itemCartData > section h2{
+    line-height: 1.1;
+}
+
+.itemCartData > p{
+    width: 250px;
+}
+
+.itemButtons{
+    display: flex;
+    flex-direction: column;
+    gap: .125rem;
+    height: 100%;
+    margin-right: 40px;
+}
+
+.incrementButton, .decreaseButton{
+    font-size: 20px;
+    background-color: var(--siena-tostado);
+    border: none;
+    border-radius: 5px;
+    color: var(--alabastro);
+    cursor: pointer;
+    padding: 5px 2px;
+    transition: all 0.2s ease;
+}
+
+.incrementButton:hover, .decreaseButton:hover{
+    background-color: #b46947;
+    color: var(--verde-salvia);
+}
+
+.quitarProducto{
+    background-color: transparent;
+    border: none;
+}
+
+.quitarProducto .svg-inline--fa{
+    color: #777;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 75px;
+    cursor: pointer;
+}
+
+.quitarProducto .svg-inline--fa:hover{
+    color: #444;
 }
 
 @media (min-width: 768px){

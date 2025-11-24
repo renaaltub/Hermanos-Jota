@@ -10,6 +10,7 @@ import AdminPanel from './pages/AdminPanel';
 import ProductDetailPage from './pages/ProductDetailPage';
 import Registro from './pages/Registro';
 import Login from './pages/Login';
+import Carrito from './pages/Carrito';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/productos' element={<Catalogo/>} />
           <Route path='/productos/:id' element={<ProductDetailPage/>} />
           <Route path='/contacto' element={<Contacto/>} />
+          <Route path='/carrito' element={<Carrito/>}/>
           <Route path='/admin' element={<AdminPanel />} />
           <Route path='/admin/crear-producto' element={<CrearProducto />} />
       </Routes>
