@@ -1,9 +1,11 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useNavigate } from 'react-router-dom'
 import { enviarFormulario } from "./funcionesLogin"
 import { OverlayLogin } from "./OverlayLogin"
+import {AuthContext} from "../context/AuthContext"
 
 function LoginFormulario() {
+    const {login} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -35,7 +37,7 @@ function LoginFormulario() {
 
     // -- DEVOLUCIÓN DE FORMULARIO -- //
     return (
-        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setExitoso, navigate})} noValidate>
+        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setExitoso, navigate, login})} noValidate>
             <div>
                 <label htmlFor="email" className="registro-label">Dirección de correo electrónico</label><br></br>
                 <input 

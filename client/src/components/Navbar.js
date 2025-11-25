@@ -62,7 +62,7 @@ function Navbar(){
                 
                 {/* Íconos de carrito y perfil para desktop */}
                 <section className='icons-nav'>
-                    <li className='nav-link-icon'><FontAwesomeIcon icon={faUser}/></li>
+                    <Link to={"/login"} className='nav-link-icon'><FontAwesomeIcon icon={faUser}/></Link>
                     <NavLink to='/carrito' className='nav-link-icon nav-cart'>
                         <FontAwesomeIcon icon={faCartShopping}/>
                         <div className={contador > 0 ? 'numero-carrito' : ''}>

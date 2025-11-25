@@ -6,9 +6,10 @@ export async function enviarFormulario({
     setDatos,
     setErrores,
     setExitoso,
-    navigate
+    navigate,
+    login
 }) {
-    // Evita el la recarga automática de la página para evaluar
+    // Evita la recarga automática de la página para evaluar
     evento.preventDefault()
 
     // Se valida que los campos no estén vacíos
@@ -51,7 +52,7 @@ export async function enviarFormulario({
         console.log("Login exitoso. Token:", data.token)
 
         // Guardado del token en localStorage
-        localStorage.setItem("token", data.token)
+        if (login) login(data.token)
 
         // Éxito visual y reset del formulario
         setExitoso(true)

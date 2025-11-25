@@ -2,6 +2,8 @@ const express = require('express');
 const contactoRoutes = require('./routes/contactoRoutes')
 const productoRoutes = require('./routes/productoRoutes')
 const userRoutes = require('./routes/userRoutes')
+const pedidosRoutes = require('./routes/pedidoRoutes')
+const authMiddleware = require('./middlewares/authMiddleware')
 const logger = require('./middlewares/logger')
 const cors = require('cors')
 const path = require("path");
@@ -28,6 +30,7 @@ app.use(logger)
 app.use('/api/contacto', contactoRoutes)
 app.use('/api/productos', productoRoutes)
 app.use('/api/usuarios', userRoutes)
+app.use('/api/pedidos', authMiddleware, pedidosRoutes)
 
 app.get('/', (req, res) => {
   res.send('¡Bienvenido al API de Mueblería Jota!');

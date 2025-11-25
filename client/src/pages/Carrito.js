@@ -1,13 +1,18 @@
 import "../css/App.css";
 import { useContext, useEffect } from "react";
 import { CartContext } from "../context/CartContext";
+import {AuthContext} from '../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import ItemCart from "../components/ItemCart";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import OverlayCompraLogin from '../components/OverlayCompraLogin';
 
 function Carrito(){
     const {cartItems, clearCart, removeItemToCart} = useContext(CartContext);
+    const {authToken, isLoggedIn} = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo({top: 0, behavior: 'smooth'});
@@ -19,6 +24,46 @@ function Carrito(){
 
         return total += (price * quantity)
     }, 0)
+
+    const handleCheckout = async () => {
+        if (!isLoggedIn || !authToken){
+            <OverlayCompraLogin/>
+            navigate('/login');
+            return
+        }
+    
+        const orderData = {
+            total: cartTotal,
+            articulos: cartItems.map(item => ({
+                productoId: item._id,
+                nombre: item.nombre,
+                cantidad: item.quantity,
+                precioUnitario: item.precio,
+                subtotal: item.precio * item.quantity
+            }))
+        }
+    
+        try{
+            const response = await fetch('http://localhost:4000/api/pedidos', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: JSON.stringify(orderData)
+            });
+    
+            if (!response.ok) {
+                throw new Error('No se pudo realizar el pedido')
+            }
+    
+            const data = await response.json();
+            console.log(`Pedido creado exitosamente. ID: ${data.id}`);
+            clearCart();
+        } catch (error){
+            console.error('Ocurrió un error en el servidor: ', error);
+        }
+    };
 
     return(
         <main className="mainCarrito">
@@ -63,7 +108,7 @@ function Carrito(){
                                         </li>
                                     ))}
                                 </ul>
-                                <button className="buyButton">Finalizar Compra</button>
+                                <button onClick={handleCheckout} className="buyButton">Finalizar Compra</button>
                             </section>
                         </section>
                     </section>
