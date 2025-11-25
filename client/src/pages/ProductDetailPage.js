@@ -52,6 +52,7 @@ export default function ProductDetailPage() {
         />
         <ProductosRelacionados
           producto={producto}
+          titulo={"Otras personas vieron"}
         />
       </section>
     </main>

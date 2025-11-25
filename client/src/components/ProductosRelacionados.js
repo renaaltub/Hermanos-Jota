@@ -12,7 +12,7 @@ const ProdRelacionados = async (url) => {
 }
 
 // Muestra hasta 3 productos distintos al producto actual en una grilla
-export default function ProductosRelacionados({ producto }) {
+export default function ProductosRelacionados({ producto, titulo }) {
   const {
     data: productos,
     error,
@@ -26,15 +26,17 @@ export default function ProductosRelacionados({ producto }) {
   useEffect(() => {
     if (initializedRef.current) return; // already initialized once for this page load
     if (isLoading || error || !Array.isArray(productos)) return;
-    if (!producto) return;
+    
+    let poolDeProductos = productos;
 
-    const relacionados = productos.filter(p => p && p._id !== producto._id);
-    const shuffled = relacionados.sort(() => Math.random() - 0.5).slice(0, 3);
+    if (producto) {
+      poolDeProductos = productos.filter(p => p && p._id !== producto._id);
+    }
+
+    const shuffled = poolDeProductos.sort(() => Math.random() - 0.5).slice(0, 3);
     setSeleccionados(shuffled);
     initializedRef.current = true;
   }, [isLoading, error, productos, producto]);
-
-  if (!producto) return null;
 
   if (error) return <p className="mensajeswr">Ocurrió un error al cargar los productos</p>
   if (isLoading || !Array.isArray(productos)) return <p className="mensajeswr">Cargando...</p>
@@ -43,7 +45,7 @@ export default function ProductosRelacionados({ producto }) {
 
   return (
     <section className="productos-relacionados">
-      <h2 className="detalle-h2">Otras personas vieron</h2>
+      <h2 className="detalle-h2">{titulo}</h2>
       <div className="relacionados-flex">
         {seleccionados.map(p => (
           <div key={p._id}>

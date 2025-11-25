@@ -1421,12 +1421,17 @@ input[type="file"]{
 .voidCart{
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 2.5rem;
     width: 100%;
+    margin-bottom: 20px;
 }
 
 .voidCart p{
     font-size: 16px;
+}
+
+.mainCarrito .card-info p{
+    font-size: 1.2rem;
 }
 
 .voidCart .textoVoid{
@@ -1434,7 +1439,7 @@ input[type="file"]{
     font-weight: 500;
 }
 
-.voidCart button{
+.voidCart .voidCartButton{
     padding: 10px 30px;
     border: none;
     border-radius: 5px 10px;
@@ -1447,7 +1452,7 @@ input[type="file"]{
     transition: all 0.3s ease-in-out;
 }
 
-.voidCart button:hover{
+.voidCart .voidCartButton:hover{
     background-color: #258;
 }
 
@@ -1464,7 +1469,7 @@ input[type="file"]{
     width: 100%;
 }
 
-.mainCarrito > section > div button{
+.mainCarrito > section > div button:not(.card-info button){
     padding: 10px 15px;
     font-size: 16px;
     font-weight: bold;
@@ -1496,7 +1501,7 @@ input[type="file"]{
     color: #48e;
 }
 
-.mainCarrito h1, .mainCarrito h2, .mainCarrito h3{
+.mainCarrito h1, .mainCarrito h2, .mainCarrito h3:not(.card-info h3){
     color: var(--siena-tostado);
 }
 
@@ -1784,6 +1789,11 @@ input[type="file"]{
 
 .input-modal::placeholder{
     color: #555;
+}
+
+.input-modal:focus{
+    border: 2px solid var(--siena-tostado);
+    box-shadow: none;
 }
 
 .conButton-modalCompra{

@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {mostrarAlertaLogin} from "../components/ModalCompraLogin";
 import { mostrarVaciarCarrito, mostrarExitoVaciar } from "../components/ModalVaciarCarrito";
 import { mostrarIngresarContrasena, mostrarConfirmarCompra } from "../components/ModalConfirmarCompra";
+import ProductosRelacionados from "../components/ProductosRelacionados";
 
 function Carrito(){
     const {cartItems, clearCart, removeItemToCart} = useContext(CartContext);
@@ -97,8 +98,8 @@ function Carrito(){
                 {cartItems.length === 0 ?
                     <section className="voidCart">
                         <p className="textoVoid">¡Tu carrito está vacío!</p>
-                        <p>Sigue mirando los productos que tenemos para ofrecerte, ¡tu hogar te lo agradecerá!</p>
-                        <Link to="/productos"><button>Ver Productos</button></Link>
+                        <p className="textoSecundarioVoid">Sigue mirando los productos que tenemos para ofrecerte, ¡tu hogar te lo agradecerá!</p>
+                        <Link to="/productos"><button className="voidCartButton">Ver Productos</button></Link>
                     </section> 
                     :
                     <section>
@@ -136,6 +137,7 @@ function Carrito(){
                     </section>
                 }
             </>
+            <ProductosRelacionados titulo={"Te podría interesar"}/>
         </main>
     )
 }
