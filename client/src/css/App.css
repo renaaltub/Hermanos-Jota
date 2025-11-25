@@ -1095,7 +1095,7 @@ footer h4{
 /* ! REGISTRO Y LOGIN PAGES */
 
 #registro-main, #login-main {
-    background-image: url(http://localhost:4000/img/tablas-madera.jpg);
+    background-image: url(http://localhost:4000/img/registro-login.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
