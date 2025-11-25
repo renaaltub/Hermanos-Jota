@@ -3,6 +3,7 @@ import React, {useContext, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from "../context/CartContext";
+import { alertaAgregarCarrito } from "./ModalAgregarCarrito";
 
 export default function ProductDetail({ producto, onVolver }) {
   const {addItemToCart} = useContext(CartContext);
@@ -55,7 +56,7 @@ export default function ProductDetail({ producto, onVolver }) {
           <h2 className="detalle-h2">{producto.nombre}</h2>
           <p className="detalleProducto-body">{producto.descripcion}</p>
           <p className="precio-prod">${producto.precio}</p>
-          <button className="btn-carrito-detalle" onClick={() => addItemToCart(producto)}>Agregar al carrito</button>
+          <button className="btn-carrito-detalle" onClick={() => {addItemToCart(producto); alertaAgregarCarrito()}}>Agregar al carrito</button>
           {/* Botón de eliminar */}
           <button 
             className="btn-eliminar"

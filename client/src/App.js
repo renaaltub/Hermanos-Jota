@@ -11,11 +11,13 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import Registro from './pages/Registro';
 import Login from './pages/Login';
 import Carrito from './pages/Carrito';
+import {Toaster} from 'react-hot-toast';
 
 
 function App() {
   return (
     <>
+      <Toaster reverseOrder={false}/>
       <Navbar/>
       
       <Routes>

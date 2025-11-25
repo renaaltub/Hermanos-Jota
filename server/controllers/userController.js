@@ -59,7 +59,7 @@ const loginUser = async (req, res) => {
 
     // 3. Si las credenciales son correctas, generamos el JWT
     const token = jwt.sign(
-      { id: user._id, username: user.username }, // Payload: datos que queremos en el token
+      { id: user._id, username: user.username, email: user.email }, // Payload: datos que queremos en el token
       process.env.JWT_SECRET,                   // La clave secreta desde .env
       { expiresIn: '1h' }                       
     );

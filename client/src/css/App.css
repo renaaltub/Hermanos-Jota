@@ -1736,6 +1736,90 @@ input[type="file"]{
     color: #444;
 }
 
+/* ? Ventanas Modales Carrito */
+
+.contenedor-modal{
+    background-color: var(--alabastro);
+    border: 2px solid var(--siena-tostado);
+}
+
+.titulo-modal{
+    color: var(--siena-tostado);
+}
+
+.texto-modal{
+    color: var(--siena-tostado);
+}
+
+.barra-progreso-modal{
+    background-color: var(--siena-tostado);
+}
+
+.loader-modal{
+    border-color: var(--siena-tostado) var(--siena-tostado) var(--siena-tostado) transparent;
+}
+
+.cancel-button-modal{
+    background-color: #459;
+    transition: all 0.3s ease;
+}
+
+.cancel-button-modal:hover{
+    background-color: #48e;
+}
+
+.confirm-button-modal{
+    background-color: #444;
+    transition: all 0.3s ease;
+}
+
+.confirm-button-modal:hover{
+    background-color: #611;
+}
+
+.input-modal{
+    border: 2px solid var(--siena-tostado);
+    border-radius: 25px;
+}
+
+.input-modal::placeholder{
+    color: #555;
+}
+
+.conButton-modalCompra{
+    background-color: var(--verde-salvia);
+    color: #131;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.conButton-modalCompra:hover{
+    background-color: #181;
+    color: #eee;
+}
+
+.swal2-icon.swal2-success {
+    border-color: var(--siena-tostado);
+    color: var(--siena-tostado);
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+    border-color: var(--siena-tostado); 
+}
+
+.swal2-icon.swal2-success [class^='swal2-success-line'] {
+    background-color: var(--siena-tostado);
+}
+
+.alertaCarrito{
+    background-color: var(--verde-salvia);
+}
+
+.titulo-alertaCarrito{
+    color: #131;
+    font-weight: bold;
+}
+
 @media (min-width: 768px){
     
     /* ? INDEX */

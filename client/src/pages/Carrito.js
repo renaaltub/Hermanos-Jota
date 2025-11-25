@@ -6,11 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import ItemCart from "../components/ItemCart";
 import { Link, useNavigate } from "react-router-dom";
-import OverlayCompraLogin from '../components/OverlayCompraLogin';
+import {mostrarAlertaLogin} from "../components/ModalCompraLogin";
+import { mostrarVaciarCarrito, mostrarExitoVaciar } from "../components/ModalVaciarCarrito";
+import { mostrarIngresarContrasena, mostrarConfirmarCompra } from "../components/ModalConfirmarCompra";
 
 function Carrito(){
     const {cartItems, clearCart, removeItemToCart} = useContext(CartContext);
-    const {authToken, isLoggedIn} = useContext(AuthContext);
+    const {authToken, isLoggedIn, currentUser} = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -27,11 +29,22 @@ function Carrito(){
 
     const handleCheckout = async () => {
         if (!isLoggedIn || !authToken){
-            <OverlayCompraLogin/>
+            await mostrarAlertaLogin()
             navigate('/login');
             return
         }
     
+        const emailUsuario = currentUser?.email;
+
+        if (!emailUsuario){
+            throw new Error('No se pudo identificar el email del usuario');
+        }
+
+        const confirmResult = await mostrarIngresarContrasena(emailUsuario);
+        if (!confirmResult.isConfirmed){
+            return
+        }
+
         const orderData = {
             total: cartTotal,
             articulos: cartItems.map(item => ({
@@ -58,12 +71,21 @@ function Carrito(){
             }
     
             const data = await response.json();
-            console.log(`Pedido creado exitosamente. ID: ${data.id}`);
+            await mostrarConfirmarCompra();
             clearCart();
+            console.log(`Pedido creado exitosamente. ID: ${data.id}`);
         } catch (error){
             console.error('Ocurrió un error en el servidor: ', error);
         }
     };
+
+    const handleClearCart = async () => {
+        const result = await mostrarVaciarCarrito();
+        if (result.isConfirmed){
+            clearCart();
+            mostrarExitoVaciar();
+        }
+    }
 
     return(
         <main className="mainCarrito">
@@ -81,7 +103,7 @@ function Carrito(){
                     :
                     <section>
                         <div>
-                            <button className="clearCart" onClick={() => clearCart()}>Vaciar Carrito</button>
+                            <button className="clearCart" onClick={() => handleClearCart()}>Vaciar Carrito</button>
                             <Link to="/productos"><button className="continueBuy">Seguir Comprando</button></Link>
                         </div>
                         <section className="cart">
