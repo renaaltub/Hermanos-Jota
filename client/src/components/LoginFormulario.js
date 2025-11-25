@@ -35,14 +35,14 @@ function LoginFormulario() {
 
     // -- DEVOLUCIÓN DE FORMULARIO -- //
     return (
-        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setExitoso, navigate})} noValidate>
+        <form id="login-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setExitoso, navigate})} noValidate>
             <div>
-                <label htmlFor="email" className="registro-label">Dirección de correo electrónico</label><br></br>
+                <label htmlFor="email" className="login-label">Dirección de correo electrónico</label><br></br>
                 <input 
                     id="email"
                     type="text"                 
                     name="email" 
-                    className="registro-input" 
+                    className="login-input" 
                     value={datos.email}
                     onChange={actualizarDatos}
                     required
@@ -51,12 +51,12 @@ function LoginFormulario() {
             </div>
 
             <div>
-                <label htmlFor="password" className="registro-label">Contraseña</label><br></br>
+                <label htmlFor="password" className="login-label">Contraseña</label><br></br>
                 <input 
                     id="password"
                     type="password"                 
                     name="password" 
-                    className="registro-input" 
+                    className="login-input" 
                     value={datos.password}
                     onChange={actualizarDatos}
                     required
@@ -65,7 +65,7 @@ function LoginFormulario() {
             </div>
 
             <div>
-                <button id="registro-button" type="submit">Iniciar sesión</button>
+                <button id="login-button" type="submit">Iniciar sesión</button>
             </div>
             {envioExitoso && <OverlayLogin />}
         </form>
