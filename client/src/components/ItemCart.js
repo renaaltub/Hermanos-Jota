@@ -23,7 +23,7 @@ export default function ItemCart({producto}){
                             <button onClick={() => addItemToCart(producto)} className='incrementButton'><FontAwesomeIcon icon={faAngleRight}/></button>
                         </div>
                     </section>
-                        <p>{producto.descripcionDestacado}</p>
+                    <p>{producto.descripcionDestacado}</p>
                 </section>
             </section>
             <button onClick={() => removeItemToCart(producto)} className='quitarProducto'><FontAwesomeIcon icon={faXmark}/></button>
