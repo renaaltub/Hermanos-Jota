@@ -1553,7 +1553,7 @@ input[type="file"]{
     background-image: linear-gradient(to left, transparent, #A0522D, transparent);
 }
 
-.cartResume h3, .cartResume p:not(.totalResume){
+.cartResume h3{
     text-align: left;
 }
 
@@ -1604,6 +1604,8 @@ input[type="file"]{
     border-radius: 15px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 1.25rem;
     order: 2;
 }
@@ -1664,7 +1666,8 @@ input[type="file"]{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 25px;
+    padding: 0 5px;
 }
 
 .itemCartData > section {
@@ -1675,7 +1678,7 @@ input[type="file"]{
     text-align: center;
     gap: 5px;
     height: 100%;
-    width: 240px;
+    width: 100%;
     padding: 0 25px;
     border-right: 2px solid var(--siena-tostado);
     border-left: 2px solid var(--siena-tostado);
@@ -1809,6 +1812,16 @@ input[type="file"]{
 .titulo-alertaCarrito{
     color: #131;
     font-weight: bold;
+}
+
+@media (min-width: 600px){
+    /* ! Carrito Page */
+    .voidCart .textoSecundarioVoid{
+        padding: 0 10px;
+    }
+    .itemCartCard, .cartResume{
+        width: 80%;
+    }
 }
 
 @media (min-width: 768px){
@@ -2179,6 +2192,23 @@ input[type="file"]{
         height: 100%;
     }
 
+    /* ! Carrito Page */
+
+    .cartResume, .itemCartCard{
+        width: 70%;
+    }
+
+    .quitarProducto .svg-inline--fa{
+        font-size: 24px;
+    }
+
+    .itemCartData, .itemProduct{
+        width: 100%;
+    }
+
+    .itemCartData > p{
+        width: 90%;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -2864,9 +2894,6 @@ input[type="file"]{
     max-width: 900px;
     margin: auto;
   }
-
-  /* ! Carrito Page */
-    
 }
 
 @media (min-width: 1024px) {
