@@ -5,9 +5,11 @@ import { faUser, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import { AuthContext } from '../context/AuthContext';
 
 function Navbar(){
     const {cartItems} = useContext(CartContext);
+    const {isLoggedIn} = useContext(AuthContext);
     const contador = cartItems.reduce((total, item) => total + item.quantity, 0)
 
     // Menú hamburguesa visibilidad
@@ -40,17 +42,16 @@ function Navbar(){
                     <NavLink to="/productos" className={getNavLinkClass} onClick={() => {setVisibilidad(false)}}>
                         Productos
                     </NavLink>
-                    
 
                     {/* Ir a contacto */}
-                    
                     <NavLink to="/contacto" className={getNavLinkClass} onClick={() => {setVisibilidad(false)}}>
                         Contacto
                     </NavLink>
-                    
 
                     <li className='li-botones'>
-                        <button className='nav-mi-perfil'>Mi perfil</button>
+                        <Link to={isLoggedIn ? '/perfil' : '/login'}>
+                            <button className='nav-mi-perfil' onClick={() => {setVisibilidad(false)}}>Mi perfil</button>
+                        </Link>
                         <div className='nav-mi-carrito-container'>
                             <Link to="/carrito"><button onClick={() => {setVisibilidad(false)}} className='nav-mi-carrito'>Mi carrito</button></Link>
                             <div className={contador > 0 ? 'numero-carrito' : ''}>
@@ -62,7 +63,7 @@ function Navbar(){
                 
                 {/* Íconos de carrito y perfil para desktop */}
                 <section className='icons-nav'>
-                    <Link to={"/login"} className='nav-link-icon'><FontAwesomeIcon icon={faUser}/></Link>
+                    <Link to={isLoggedIn ? "/perfil" : "/login"} className='nav-link-icon'><FontAwesomeIcon icon={faUser}/></Link>
                     <NavLink to='/carrito' className='nav-link-icon nav-cart'>
                         <FontAwesomeIcon icon={faCartShopping}/>
                         <div className={contador > 0 ? 'numero-carrito' : ''}>

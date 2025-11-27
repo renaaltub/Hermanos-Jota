@@ -61,7 +61,7 @@ export async function enviarFormulario({
             setExitoso(false)
             setDatos({ email: "", password: "" })
             setErrores({ email: "", password: "" })
-            navigate("/profile")
+            navigate("/perfil")
         }, 3000)
 
     } catch (error) {
