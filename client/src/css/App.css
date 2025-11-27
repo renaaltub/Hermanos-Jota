@@ -1597,16 +1597,16 @@ input[type="file"]{
 }
 
 .itemsCart{
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    padding: 10px;
-    border-radius: 15px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 1.25rem;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem;
+    border-radius: 15px;
+    margin: auto;
+    padding: 10px;
     order: 2;
 }
 
@@ -1727,11 +1727,6 @@ input[type="file"]{
 }
 
 /* ? Ventanas Modales Carrito */
-
-.contenedor-modal{
-    background-color: var(--alabastro);
-    border: 2px solid var(--siena-tostado);
-}
 
 .titulo-modal{
     color: var(--siena-tostado);
@@ -2426,44 +2421,8 @@ input[type="file"]{
 
     /* ! Carrito Page */
 
-    /* .mainCarrito{
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .voidCart{
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .voidCart p{
-        font-size: 16px;
-    }
-
-    .mainCarrito .card-info p{
-        font-size: 1.2rem;
-    }
-
-    .voidCart .textoVoid{
-        font-size: 20px;
-        font-weight: 500;
-    }
-
     .voidCart .voidCartButton{
-        padding: 10px 30px;
-        border: none;
-        border-radius: 5px 10px;
-        color: var(--alabastro);
-        font-weight: bold;
-        font-size: 16px;
         background-color: #677;
-        cursor: pointer;
-        text-shadow: 0px 0px 10px #555;
         transition: all 0.3s ease-in-out;
     }
 
@@ -2471,31 +2430,7 @@ input[type="file"]{
         background-color: #258;
     }
 
-    .mainCarrito, .cart{
-        width: 100%;
-        text-align: center;
-    }
-
-    .mainCarrito > section > div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        width: 100%;
-    }
-
-    .mainCarrito > section > div button:not(.card-info button){
-        padding: 10px 15px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0px 0px 5px #666;
-        border: none;
-        border-radius: 5px;
-    }
-
     .clearCart{
-        background-color: #e55;
         color: #ddd;
         transition: all 0.3s ease;
     }
@@ -2516,87 +2451,26 @@ input[type="file"]{
         color: #48e;
     }
 
-    .mainCarrito h1, .mainCarrito h2, .mainCarrito h3:not(.card-info h3){
-        color: var(--siena-tostado);
-    }
-
-    .mainCarrito > div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .mainCarrito > div div{
-        height: 2px;
-        width: 50%;
-        background-image: linear-gradient(to left, transparent, #A0522D, transparent);
-    }
-
-    .totalResume, .precioItem{
-        color: var(--siena-tostado);
-        font-weight: 700;
-    }
-
-    .cart{
-        display: flex;
-        gap: 3.125rem;
-        padding: 20px;
-    }
-
     .cartResume{
-        display: flex;
-        flex-direction: column;
-        gap: .9375rem;
         width: 450px;
-        height: min-content;
-        padding: 15px;
-        border: 2px solid var(--siena-tostado);
-        border-radius: 25px;
-        box-shadow: 0px 0px 10px #999;
-    }
-
-    .cartResume div{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: .3125rem;
-    }
-
-    .cartResume div div{
-        height: 2px;
-        width: 90%;
-        background-image: linear-gradient(to left, transparent, #A0522D, transparent);
+        order: 1;
     }
 
     .cartResume h3, .cartResume p:not(.totalResume){
         text-align: left;
     }
 
-    .cartResume ul{
-        display: flex;
-        flex-direction: column;
-        gap: .125rem;
-    }
-
     .cartResume ul li{
         display: flex;
         justify-content: space-between;
         padding: 5px 10px;
+        gap: 0px;
         border-bottom: 2px solid #555;
         transition: all 0.3s ease;
     }
 
     .cartResume ul li button{
         display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    .cartResume ul li button .svg-inline--fa{
-        color: #444;
-        font-size: 16px;
     }
 
     .cartResume ul li:hover button{
@@ -2629,49 +2503,29 @@ input[type="file"]{
     }
 
     .itemProduct{
-        display: flex;
+        flex-direction: row;
         gap: 1.25rem;
-        text-align: start;
+        order: 1;
     }
 
     .itemsCart{
         width: 90%;
-        height: 100%;
-        margin: auto;
-        padding: 10px;
-        border-radius: 15px;
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
+        flex-wrap: wrap-reverse;
     }
 
     .itemCartCard{
         width: 100%;
-        height: auto;
-        display: flex;
-        align-items: center;
+        flex-direction: row;
         justify-content: space-between;
-        gap: 1.25rem;
-        padding: 20px;
-        background-color: var(--alabastro);
-        border-bottom: 3px solid var(--siena-tostado);
-        border-top: 3px solid var(--siena-tostado);
         border-radius: 4.6875rem;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0px 0px 10px #999;
     }
 
     .itemCartImg{
         width: 100px;
-        height: auto;
     }
 
     .itemCartImg img{
-        width: 100%;
-        height: 100%;
         transition: all 0.2s ease;
-        filter: drop-shadow(0px 0px 10px #888);
     }
 
     .itemCartImg img:hover{
@@ -2679,21 +2533,13 @@ input[type="file"]{
     }
 
     .itemCartData{
-        display: flex;
-        align-items: center;
-        gap: 25px;
+        flex-direction: row;
+        padding: 0 0;
+        justify-content: start;
     }
 
     .itemCartData > section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-        height: 100%;
         width: 240px;
-        padding: 0 25px;
-        border-right: 2px solid var(--siena-tostado);
-        border-left: 2px solid var(--siena-tostado);
     }
 
     .itemCartData > section h2{
@@ -2702,21 +2548,11 @@ input[type="file"]{
 
     .itemCartData > p{
         width: 250px;
-    }
-
-    .itemCartData section div{
-        display: flex;
-        gap: 10px;
-    }
-
-    .incrementButton, .decreaseButton{
-        font-size: 16px;
-        background-color: #666;
-        border: none;
-        color: var(--alabastro);
-        cursor: pointer;
-        padding: 5px 2px;
-        transition: all 0.2s ease;
+        border-left: none;
+        border-radius: 0;
+        box-shadow: none;
+        margin-bottom: 0;
+        padding: 0 0;
     }
 
     .incrementButton{
@@ -2738,49 +2574,24 @@ input[type="file"]{
         color: var(--verde-salvia);
     }
 
-    .quitarProducto{
-        background-color: transparent;
-        border: none;
-    }
-
     .quitarProducto .svg-inline--fa{
         color: #777;
         font-size: 24px;
-        position: absolute;
-        top: 10px;
-        right: 75px;
         cursor: pointer;
     }
 
     .quitarProducto .svg-inline--fa:hover{
         color: #444;
-    } */
+    }
 
     /* ? Ventanas Modales Carrito */
 
-    /* .contenedor-modal{
+    .contenedor-modal{
         background-color: var(--alabastro);
         border: 2px solid var(--siena-tostado);
     }
 
-    .titulo-modal{
-        color: var(--siena-tostado);
-    }
-
-    .texto-modal{
-        color: var(--siena-tostado);
-    }
-
-    .barra-progreso-modal{
-        background-color: var(--siena-tostado);
-    }
-
-    .loader-modal{
-        border-color: var(--siena-tostado) var(--siena-tostado) var(--siena-tostado) transparent;
-    }
-
     .cancel-button-modal{
-        background-color: #459;
         transition: all 0.3s ease;
     }
 
@@ -2797,53 +2608,22 @@ input[type="file"]{
         background-color: #611;
     }
 
-    .input-modal{
-        border: 2px solid var(--siena-tostado);
-        border-radius: 25px;
-    }
-
-    .input-modal::placeholder{
-        color: #555;
-    }
-
-    .input-modal:focus{
-        border: 2px solid var(--siena-tostado);
-        box-shadow: none;
-    }
-
-    .conButton-modalCompra{
-        background-color: var(--verde-salvia);
-        color: #131;
-        font-weight: bold;
-        transition: all 0.3s ease;
-    }
-
     .conButton-modalCompra:hover{
         background-color: #181;
         color: #eee;
     }
+}
 
-    .swal2-icon.swal2-success {
-        border-color: var(--siena-tostado);
-        color: var(--siena-tostado);
+@media (min-width: 1100px){
+    .cart{
+        flex-direction: row;
+        align-items: start;
     }
 
-    .swal2-icon.swal2-success .swal2-success-ring {
-        border-color: var(--siena-tostado); 
+    .cartResume{
+        width: 450px;
+        order: 2;
     }
-
-    .swal2-icon.swal2-success [class^='swal2-success-line'] {
-        background-color: var(--siena-tostado);
-    }
-
-    .alertaCarrito{
-        background-color: var(--verde-salvia);
-    }
-
-    .titulo-alertaCarrito{
-        color: #131;
-        font-weight: bold;
-    } */
 }
 
 @media (min-width: 1440px) {
