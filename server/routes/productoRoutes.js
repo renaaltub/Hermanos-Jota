@@ -1,9 +1,7 @@
 const express = require('express')
 const routes = express.Router()
-const Producto = require('../models/Product')
 const multer = require('multer')
 const cloudinary = require('cloudinary').v2
-const streamifier = require('streamifier')
 const productoController = require('../controllers/productoController')
 
 require('dotenv').config()
