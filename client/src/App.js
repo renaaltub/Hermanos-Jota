@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import Carrito from './pages/Carrito';
 import Profile from './pages/Profile';
 import {Toaster} from 'react-hot-toast';
+import RutaProtegida from './components/RutaProtegida';
 
 
 function App() {
@@ -32,6 +33,11 @@ function App() {
           <Route path='/perfil' element={<Profile/>}/>
           <Route path='/admin' element={<AdminPanel />} />
           <Route path='/admin/crear-producto' element={<CrearProducto />} />
+
+      <Route element={<RutaProtegida />}>
+              <Route path='/admin' element={<AdminPanel />} />
+              <Route path='/admin/crear-producto' element={<CrearProducto />} />
+          </Route>
       </Routes>
 
       <Footer />
