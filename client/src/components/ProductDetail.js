@@ -3,10 +3,12 @@ import React, {useContext, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext"; 
 import { alertaAgregarCarrito } from "./ModalAgregarCarrito";
 
 export default function ProductDetail({ producto, onVolver }) {
   const {addItemToCart} = useContext(CartContext);
+  const { AuthToken, isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
     window.scrollTo({top: 0, behavior: 'smooth'})
@@ -25,6 +27,7 @@ export default function ProductDetail({ producto, onVolver }) {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${AuthToken}` //
           },
         });
 
@@ -58,12 +61,14 @@ export default function ProductDetail({ producto, onVolver }) {
           <p className="precio-prod">${producto.precio}</p>
           <button className="btn-carrito-detalle" onClick={() => {addItemToCart(producto); alertaAgregarCarrito()}}>Agregar al carrito</button>
           {/* Botón de eliminar */}
-          <button 
-            className="btn-eliminar"
-            onClick={handleDelete}
-          >
-            Eliminar
-          </button>
+          {isLoggedIn && (
+            <button 
+                className="btn-eliminar"
+                onClick={handleDelete}
+            >
+                Eliminar Producto
+            </button>
+          )}
         </div>
           {/* Mostrar sostenibilidad si existe (soporta 'sostentabilidad' o 'sostenibilidad') */}
 
