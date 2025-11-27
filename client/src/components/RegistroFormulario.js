@@ -11,6 +11,7 @@ function RegistroFormulario() {
     //Estado de los datos del form
     const [datos, setDatos] = useState({
         username: "",
+        role: "cliente",
         email: "",
         password: ""
     })
