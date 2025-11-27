@@ -10,7 +10,8 @@ export const alertaAgregarCarrito = () => {
             color: '#131',
             border: '2px solid var(--alabastro)',
             fontWeight: 'bold',
-            padding: '16px'
+            padding: '16px',
+            height: '70px',
         },
 
         iconTheme: {

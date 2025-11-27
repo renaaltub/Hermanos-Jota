@@ -102,8 +102,8 @@ function Carrito(){
                         <Link to="/productos"><button className="voidCartButton">Ver Productos</button></Link>
                     </section> 
                     :
-                    <section>
-                        <div>
+                    <section className="noVoidCart">
+                        <div className="buttonsNoVoidCart">
                             <button className="clearCart" onClick={() => handleClearCart()}>Vaciar Carrito</button>
                             <Link to="/productos"><button className="continueBuy">Seguir Comprando</button></Link>
                         </div>

@@ -52,7 +52,7 @@ function Navbar(){
                     <li className='li-botones'>
                         <button className='nav-mi-perfil'>Mi perfil</button>
                         <div className='nav-mi-carrito-container'>
-                            <button className='nav-mi-carrito'>Mi carrito</button>
+                            <Link to="/carrito"><button onClick={() => {setVisibilidad(false)}} className='nav-mi-carrito'>Mi carrito</button></Link>
                             <div className={contador > 0 ? 'numero-carrito' : ''}>
                                 <p>{contador > 0 ? contador : null}</p>
                             </div>
