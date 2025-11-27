@@ -531,6 +531,7 @@ footer a{
     gap: 15px;
     width: 50%;
     cursor: pointer;
+    margin: auto;
 }
 
 .footer-logo div{
