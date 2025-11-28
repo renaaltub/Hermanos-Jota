@@ -31,7 +31,15 @@ export function alertas({valNombre, valEmail, valMensaje}) {
 }
 
 //Se define la función encargada de enviar el formulario a la API del backend
-export async function enviarFormulario({evento, datos, setDatos, setErrores, setIntento, setExitoso}) {
+export async function enviarFormulario({
+    evento, 
+    datos, 
+    setDatos, 
+    setErrores, 
+    setIntento, 
+    setExitoso,
+    setLoading
+}) {
     //Se previene que la página se refresque al darse el submit (por click o enter) y que se pueda verificar
     evento.preventDefault()
 
@@ -48,6 +56,8 @@ export async function enviarFormulario({evento, datos, setDatos, setErrores, set
     if (!datosValidos) {return}
     
     try {
+        setLoading(true)
+
         const respuesta = await fetch(`http://localhost:4000/api/contacto`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -61,13 +71,28 @@ export async function enviarFormulario({evento, datos, setDatos, setErrores, set
         const data = await respuesta.json()
         console.log("Datos enviados:", datos)
         console.log("Respuesta API:", data)
+
+        // Éxito visual y reset del formulario
+        setLoading(false)
         setExitoso(true)
+        
         setTimeout(() => {
+
             setExitoso(false)
-            setDatos({nombre: "", email: "", mensaje: ""})
-            setErrores({nombre: "", email: "", mensaje: ""})
+
+            setDatos({
+                nombre: "", 
+                email: "", 
+                mensaje: ""})
+
+            setErrores({
+                nombre: "", 
+                email: "", 
+                mensaje: ""})
+
             setIntento(false)
-        }, 3000)
+            
+        }, 1500)
 
 
     } catch (error) {

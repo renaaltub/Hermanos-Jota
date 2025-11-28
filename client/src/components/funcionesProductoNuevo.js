@@ -72,6 +72,7 @@ export async function enviarFormulario({
     setErrores,
     setIntento,
     setExitoso,
+    setLoading,
     navigate
 }) {
     // Evita el la recarga automática de la página para evaluar
@@ -105,6 +106,8 @@ export async function enviarFormulario({
 
     try {
 
+        setLoading(true)
+
         const respuesta = await fetch(`http://localhost:4000/api/productos`, {
             method: "POST",
             body: formData
@@ -119,6 +122,7 @@ export async function enviarFormulario({
         console.log("Respuesta API:", data)
 
         // Éxito visual y reset del formulario
+        setLoading(false)
         setExitoso(true)
         
         setTimeout(() => {
@@ -154,7 +158,7 @@ export async function enviarFormulario({
             setIntento(false)
             navigate('/productos')
 
-        }, 3000)
+        }, 1500)
         
     } catch (error) {
         console.error("Error al enviar el producto:", error)

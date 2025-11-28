@@ -2,6 +2,7 @@ import { useState } from "react"
 import {useNavigate} from 'react-router-dom'
 import { validacionCampos, alertas, enviarFormulario } from "./funcionesRegistro"
 import { OverlayRegistro } from "./OverlayRegistro"
+import { OverlayCargando } from "./OverlayLoading"
 
 function RegistroFormulario() {
 
@@ -29,6 +30,9 @@ function RegistroFormulario() {
     //Estado que establece si el form fue enviado correctamente
     const [envioExitoso, setExitoso] = useState(false)
 
+    //Estado de carga entre que se envía el formulario y se confirma la operación exitosa
+    const [loading, setLoading] = useState(false)
+
 
     // -- FUNCIÓN ACTUALIZACIÓN DE DATOS -- //
     //Se define la función encargada de actualizar en tiempo real los campos con lo que el usuario escribe y los mensajes de error
@@ -47,7 +51,7 @@ function RegistroFormulario() {
 
     // -- DEVOLUCIÓN DE FORMULARIO -- //
     return (
-        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setIntento, setExitoso, navigate})} noValidate>
+        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setIntento, setExitoso, setLoading, navigate})} noValidate>
             <div>
                 <label htmlFor="username" className="registro-label">Nombre de usuario</label><br></br>
                 <input 
@@ -95,6 +99,7 @@ function RegistroFormulario() {
             <div>
                 <button id="registro-button" type="submit">Registrarse</button>
             </div>
+            {loading && <OverlayCargando />}
             {envioExitoso && <OverlayRegistro />}
         </form>
     )

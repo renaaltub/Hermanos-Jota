@@ -12,7 +12,8 @@ const Registro = () => {
                 <section className="registro-bienvenida">
                     <h2>¡Bienvenido/a nuevo/a cliente!</h2>
                     <p>¡Completá el siguiente formulario para empezar a ser parte de nuestro sitio!</p>
-                    <p>¿Ya tenés una cuenta? <Link to="/login">Iniciá sesión.</Link></p>
+                    <p>¿Ya tenés una cuenta?</p>
+                    <Link to="/login">Iniciá sesión</Link>
                 </section>
                 <section>
                     <RegistroFormulario />

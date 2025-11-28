@@ -1109,7 +1109,7 @@ footer h4{
     padding: 15px;
 }
 
-.registro-bienvenida p a, .login-bienvenida p a{
+.registro-bienvenida a, .login-bienvenida a{
     color:var(--verde-salvia);
     text-decoration: underline;
 }
@@ -1329,6 +1329,34 @@ input[type="file"]{
     align-items: center;
 
     z-index: 2;
+}
+
+.cartel-cargando {
+    background: white;
+    padding: 40px;
+    border: 3px solid var(--siena-tostado);
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Spinner */
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 7px solid #ccc;
+    border-top-color: var(--siena-tostado);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .cartel-enviado {
@@ -2146,7 +2174,11 @@ input[type="file"]{
         font-size: 20px;
     }
 
-    /* Productos */
+    .registro-title div, .login-title div{
+        height: 2px;
+        width: 90%;
+        background-image: linear-gradient(to left, transparent, #A0522D, transparent);
+    }
 
     /* ! CONTACTO PAGE Y NUEVO PRODUCTO PAGE*/
 
@@ -2650,7 +2682,7 @@ input[type="file"]{
         text-align: center;
     }
 
-    .registro-bienvenida p, .login-bienvenida p{
+    .registro-bienvenida p, .login-bienvenida p, .registro-bienvenida a, .login-bienvenida a{
         font-size: 18px;
     }
 
@@ -2662,12 +2694,6 @@ input[type="file"]{
         width: 100%;
         font-size: 20px;
         line-height: 1.1;
-    }
-
-    .registro-title div, .login-title div{
-        height: 2px;
-        width: 90%;
-        background-image: linear-gradient(to left, transparent, #A0522D, transparent);
     }
 
     /* ! CONTACTO PAGE */

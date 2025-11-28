@@ -12,7 +12,8 @@ const Login = () => {
                 <section className="login-bienvenida">
                     <h2>¡Bienvenido/a!</h2>
                     <p>Ingresá tus credenciales para acceder a tu cuenta.</p>
-                    <p>¿Todavía no tenés una cuenta? <Link to="/registro">Creala completando nuestro formulario de registro.</Link></p>
+                    <p>¿Todavía no tenés una cuenta?</p>
+                    <Link to="/registro">Creala completando nuestro formulario de registro</Link>
                 </section>
                 <section>
                     <LoginFormulario />
