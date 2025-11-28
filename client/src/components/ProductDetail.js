@@ -8,7 +8,7 @@ import { alertaAgregarCarrito } from "./ModalAgregarCarrito";
 
 export default function ProductDetail({ producto, onVolver }) {
   const {addItemToCart} = useContext(CartContext);
-  const { AuthToken, isLoggedIn } = useContext(AuthContext);
+  const { AuthToken, isLoggedIn, currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     window.scrollTo({top: 0, behavior: 'smooth'})
@@ -61,14 +61,14 @@ export default function ProductDetail({ producto, onVolver }) {
           <p className="precio-prod">${producto.precio}</p>
           <button className="btn-carrito-detalle" onClick={() => {addItemToCart(producto); alertaAgregarCarrito()}}>Agregar al carrito</button>
           {/* Botón de eliminar */}
-          {isLoggedIn && (
+          {isLoggedIn && currentUser?.role === 'admin' && (
             <button 
                 className="btn-eliminar"
                 onClick={handleDelete}
             >
-                Eliminar Producto
+                Eliminar Producto (Admin)
             </button>
-          )}
+          )}  
         </div>
           {/* Mostrar sostenibilidad si existe (soporta 'sostentabilidad' o 'sostenibilidad') */}
 
