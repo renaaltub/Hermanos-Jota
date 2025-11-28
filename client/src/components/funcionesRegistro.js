@@ -48,6 +48,7 @@ export async function enviarFormulario({
     setErrores,
     setIntento,
     setExitoso,
+    setLoading,
     navigate
 }) {
     // Evita el la recarga automática de la página para evaluar
@@ -66,6 +67,7 @@ export async function enviarFormulario({
     if (!datosValidos) return
 
     try {
+        setLoading(true)
 
         const respuesta = await fetch(`http://localhost:4000/api/usuarios/register`, {
             method: "POST",
@@ -76,7 +78,7 @@ export async function enviarFormulario({
         if (!respuesta.ok) {
             const data = await respuesta.json();
 
-            if (respuesta.status === 409 && data.message === "El email o nombre de usuario ya está en uso.") {
+            if (respuesta.status === 409 && data.message === "El email o nombre de usuario ya está en uso.") {                
                 setErrores(prev => ({
                     ...prev,
                     username: "El email o nombre de usuario ya está en uso.",
@@ -115,10 +117,12 @@ export async function enviarFormulario({
             setIntento(false)
             navigate('/login')
 
-        }, 3000)
+        }, 1000)
         
     } catch (error) {
         console.error("Error al registrar el usuario:", error)
         alert("Se produjo un error durante el registro. Intente nuevamente.")
+    } finally {
+        setLoading(false)
     }
 }

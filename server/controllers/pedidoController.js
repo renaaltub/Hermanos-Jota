@@ -34,6 +34,13 @@ const createOrder = asyncHandler(async (req, res) => {
     });
 })
 
+const getOrdersByUser = asyncHandler(async (req, res) => {
+    console.log("Fetching orders for user:", req.user.id);
+    const orders = await Pedido.find({ usuario: req.user.id }).sort({ createdAt: -1 });
+    console.log("Orders found:", orders);
+    res.json(orders);
+})
+
 module.exports = {
-    getAllOrders, getOrderById, createOrder
+    getAllOrders, getOrderById, createOrder, getOrdersByUser
 }

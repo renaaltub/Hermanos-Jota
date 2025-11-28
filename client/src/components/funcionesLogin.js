@@ -6,6 +6,7 @@ export async function enviarFormulario({
     setDatos,
     setErrores,
     setExitoso,
+    setLoading,
     navigate,
     login
 }) {
@@ -24,6 +25,8 @@ export async function enviarFormulario({
 
     // Se intenta enviar el formulario al backend y asignar un tokem
     try {
+        setLoading(true)
+
         const respuesta = await fetch("http://localhost:4000/api/usuarios/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -58,14 +61,27 @@ export async function enviarFormulario({
         setExitoso(true)
 
         setTimeout(() => {
+
             setExitoso(false)
-            setDatos({ email: "", password: "" })
-            setErrores({ email: "", password: "" })
-            navigate("/profile")
-        }, 3000)
+
+            setDatos({ 
+                email: "", 
+                password: "" 
+            })
+
+            setErrores({ 
+                email: "", 
+                password: "" 
+            })
+
+            navigate("/perfil")
+
+        }, 1000)
 
     } catch (error) {
         console.error("Error de red:", error)
         alert("No se pudo conectar con el servidor. Intentá nuevamente.")
+    } finally {
+        setLoading(false)
     }
 }

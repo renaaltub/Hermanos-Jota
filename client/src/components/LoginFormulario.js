@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { enviarFormulario } from "./funcionesLogin"
 import { OverlayLogin } from "./OverlayLogin"
 import {AuthContext} from "../context/AuthContext"
+import { OverlayCargando } from "./OverlayLoading"
 
 function LoginFormulario() {
     const {login} = useContext(AuthContext)
@@ -25,6 +26,9 @@ function LoginFormulario() {
     //Estado que establece si el form fue enviado correctamente
     const [envioExitoso, setExitoso] = useState(false)
 
+    //Estado de carga entre que se envía el formulario y se confirma la operación exitosa
+    const [loading, setLoading] = useState(false)
+
 
     // -- FUNCIÓN ACTUALIZACIÓN DE DATOS -- //
     //Se define la función encargada de actualizar en tiempo real los campos con lo que el usuario escribe y los mensajes de error
@@ -37,7 +41,7 @@ function LoginFormulario() {
 
     // -- DEVOLUCIÓN DE FORMULARIO -- //
     return (
-        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setExitoso, navigate, login})} noValidate>
+        <form id="registro-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setExitoso, setLoading, navigate, login})} noValidate>
             <div>
                 <label htmlFor="email" className="login-label">Dirección de correo electrónico</label><br></br>
                 <input 
@@ -69,6 +73,7 @@ function LoginFormulario() {
             <div>
                 <button id="login-button" type="submit">Iniciar sesión</button>
             </div>
+            {loading && <OverlayCargando />}
             {envioExitoso && <OverlayLogin />}
         </form>
     )

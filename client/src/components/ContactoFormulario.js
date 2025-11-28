@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import {validacionCampos, alertas, enviarFormulario} from "./funcionesContacto"
 import { OverlayForm } from "./OverlayForm"
+import { OverlayCargando } from "./OverlayLoading"
 
 function ContactoFormulario() {
 
@@ -25,6 +26,9 @@ function ContactoFormulario() {
     //Estado que establece si el form fue enviado correctamente
     const [envioExitoso, setExitoso] = useState(false)
 
+    //Estado de carga entre que se envía el formulario y se confirma la operación exitosa
+    const [loading, setLoading] = useState(false)
+
 
     // -- FUNCIÓN ACTUALIZACIÓN DE DATOS -- //
     //Se define la función encargada de actualizar en tiempo real los campos con lo que el usuario escribe y los mensajes de error
@@ -43,7 +47,7 @@ function ContactoFormulario() {
 
     // -- DEVOLUCIÓN DE FORMULARIO -- //
     return (
-        <form id="contacto-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setIntento, setExitoso})} noValidate>
+        <form id="contacto-form" onSubmit={(evento) => enviarFormulario({evento, datos, setDatos, setErrores, setIntento, setExitoso, setLoading})} noValidate>
             <div>
                 <label htmlFor="nombre" className="contacto-label">Nombre</label><br></br>
                 <input 
@@ -88,6 +92,7 @@ function ContactoFormulario() {
             <div>
                 <button id="contacto-button" type="submit">Enviar mensaje</button>
             </div>
+            {loading && <OverlayCargando />}
             {envioExitoso && <OverlayForm />}
         </form>
     )

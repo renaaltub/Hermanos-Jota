@@ -3,6 +3,8 @@ const routes = express.Router()
 const multer = require('multer')
 const cloudinary = require('cloudinary').v2
 const productoController = require('../controllers/productoController')
+const authMiddleware = require('../middlewares/authMiddleware')
+const adminMiddleware = require('../middlewares/adminMiddleware')
 
 require('dotenv').config()
 
@@ -28,8 +30,7 @@ routes.post("/",upload.single('imagen'), productoController.createProduct )
 routes.put("/:id", productoController.updateProduct )
 
 // DELETE /api/productos/:id
-routes.delete("/:id", productoController.deleteProduct )
-
+routes.delete("/:id", authMiddleware, adminMiddleware, productoController.deleteProduct )
 
 
 module.exports = routes
