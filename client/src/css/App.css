@@ -1110,7 +1110,7 @@ footer h4{
 }
 
 .registro-bienvenida a, .login-bienvenida a{
-    color:var(--verde-salvia);
+    color: #459;
     text-decoration: underline;
 }
 

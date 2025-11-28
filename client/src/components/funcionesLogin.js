@@ -58,18 +58,30 @@ export async function enviarFormulario({
         if (login) login(data.token)
 
         // Éxito visual y reset del formulario
-        setLoading(false)
         setExitoso(true)
 
         setTimeout(() => {
+
             setExitoso(false)
-            setDatos({ email: "", password: "" })
-            setErrores({ email: "", password: "" })
+
+            setDatos({ 
+                email: "", 
+                password: "" 
+            })
+
+            setErrores({ 
+                email: "", 
+                password: "" 
+            })
+
             navigate("/perfil")
-        }, 1500)
+
+        }, 1000)
 
     } catch (error) {
         console.error("Error de red:", error)
         alert("No se pudo conectar con el servidor. Intentá nuevamente.")
+    } finally {
+        setLoading(false)
     }
 }

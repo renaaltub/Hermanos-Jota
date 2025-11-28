@@ -122,7 +122,6 @@ export async function enviarFormulario({
         console.log("Respuesta API:", data)
 
         // Éxito visual y reset del formulario
-        setLoading(false)
         setExitoso(true)
         
         setTimeout(() => {
@@ -158,10 +157,12 @@ export async function enviarFormulario({
             setIntento(false)
             navigate('/productos')
 
-        }, 1500)
+        }, 1000)
         
     } catch (error) {
         console.error("Error al enviar el producto:", error)
         alert("Se produjo un error al enviar el producto. Intente nuevamente.")
+    } finally {
+        setLoading(false)
     }
 }
