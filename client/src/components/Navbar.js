@@ -52,7 +52,7 @@ function Navbar(){
                        
                         {isLoggedIn ? (
                             <>
-                                <Link to="/profile" className='nav-link' onClick={() => setVisibilidad(false)} style={{fontSize: '1rem', color: 'var(--alabastro)'}}>
+                                <Link to="/perfil" className='nav-link' onClick={() => setVisibilidad(false)} style={{fontSize: '1rem', color: 'var(--alabastro)'}}>
                                     Hola, {currentUser?.username}
                                 </Link>
                                 <button onClick={handleLogout} className='nav-mi-perfil'>Cerrar Sesión</button>
@@ -75,7 +75,7 @@ function Navbar(){
                     {isLoggedIn ? (
                         <>
                             
-                            <Link to="/profile" className='nav-link-icon' title="Mi Perfil"><FontAwesomeIcon icon={faUser}/></Link>
+                            <Link to="/perfil" className='nav-link-icon' title="Mi Perfil"><FontAwesomeIcon icon={faUser}/></Link>
                             
                             <button onClick={handleLogout} className='nav-link-icon' style={{background:'none', border:'none', cursor:'pointer'}} title="Cerrar Sesión">
                                 <FontAwesomeIcon icon={faRightFromBracket}/>

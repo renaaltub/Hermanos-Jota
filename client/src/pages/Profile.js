@@ -3,6 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBoxOpen } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import '../css/App.css';
 
 const Profile = () => {
@@ -93,12 +94,29 @@ const Profile = () => {
                             </div>
                         </div>
                         
-                        <button 
-                            onClick={handleLogout} 
-                            className="btn-logout"
-                        >
-                            Cerrar Sesión
-                        </button>
+                        <div className="profile-actions">
+                                
+                                {/* 1. Botón de Cerrar Sesión */}
+                                <button 
+                                    onClick={handleLogout} 
+                                    className="btn-logout"
+                                    style={{ marginTop: 0 }} 
+                                >
+                                    Cerrar Sesión
+                                </button>
+
+                                {/* 2. Botón de Admin (Solo si es admin) */}
+                                {currentUser?.role === 'admin' && (
+                                    <Link to="/admin">
+                                        <button className="btn-admin">
+                                            Panel Admin
+                                        </button>
+                                    </Link>
+                                )}
+                                
+                            </div>
+                        
+                        
                     </>
                 ) : (
                     <div className="orders-container">

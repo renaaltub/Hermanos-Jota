@@ -8,7 +8,7 @@ import { alertaAgregarCarrito } from "./ModalAgregarCarrito";
 
 export default function ProductDetail({ producto, onVolver }) {
   const {addItemToCart} = useContext(CartContext);
-  const { AuthToken, isLoggedIn, currentUser } = useContext(AuthContext);
+  const { authToken, isLoggedIn, currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     window.scrollTo({top: 0, behavior: 'smooth'})
@@ -19,15 +19,14 @@ export default function ProductDetail({ producto, onVolver }) {
   }
 
   const handleDelete = async () => {
-    // 2. Confirmation dialog (window.confirm())
     if (window.confirm(`¿Estás seguro de que deseas eliminar el producto: ${producto.nombre}?`)) {
       try {
-        // 3. Send DELETE request to /api/productos/:id
+
         const response = await fetch(`http://localhost:4000/api/productos/${producto._id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${AuthToken}` //
+            'Authorization': `Bearer ${authToken}` //
           },
         });
 
@@ -36,10 +35,10 @@ export default function ProductDetail({ producto, onVolver }) {
           throw new Error(`Error al eliminar el producto: ${response.status} - ${errorData.message || 'Error del servidor'}`);
         }
 
-        // 4. Redirect user back to the catalog (or unselect product in parent view)
+        
         alert(`Producto ${producto.nombre} eliminado exitosamente.`);
         
-        // Use onVolver(true) to signal the parent component to refresh the product list
+       
         onVolver(true); 
         
       } catch (error) {

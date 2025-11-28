@@ -14,6 +14,7 @@ import Carrito from './pages/Carrito';
 import Profile from './pages/Profile';
 import {Toaster} from 'react-hot-toast';
 import RutaProtegida from './components/RutaProtegida';
+import RutaAdmin from './components/RutaAdmin';
 
 
 function App() {
@@ -30,11 +31,10 @@ function App() {
           <Route path='/productos/:id' element={<ProductDetailPage/>} />
           <Route path='/contacto' element={<Contacto/>} />
           <Route path='/carrito' element={<Carrito/>}/>
-          <Route path='/perfil' element={<Profile/>}/>
-          <Route path='/admin' element={<AdminPanel />} />
-          <Route path='/admin/crear-producto' element={<CrearProducto />} />
-
-      <Route element={<RutaProtegida />}>
+          <Route element={<RutaProtegida />}>
+              <Route path='/perfil' element={<Profile/>}/>
+          </Route>
+          <Route element={<RutaAdmin />}>
               <Route path='/admin' element={<AdminPanel />} />
               <Route path='/admin/crear-producto' element={<CrearProducto />} />
           </Route>
