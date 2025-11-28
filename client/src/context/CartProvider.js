@@ -36,6 +36,7 @@ export const CartProvider = ({children}) => {
                                 productoId: item._id,
                                 nombre: item.nombre,
                                 precio: item.precio,
+                                descripcionDestacado: item.descripcionDestacado,
                                 quantity: item.quantity,
                                 imagen: item.imagen
                             }))
@@ -94,6 +95,7 @@ export const CartProvider = ({children}) => {
                                 productoId: item._id,
                                 nombre: item.nombre,
                                 precio: item.precio,
+                                descripcionDestacado: item.descripcionDestacado,
                                 quantity: item.quantity,
                                 imagen: item.imagen
                             }))
