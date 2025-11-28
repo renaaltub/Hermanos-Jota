@@ -101,6 +101,7 @@ export async function enviarFormulario({
 
             setDatos({
                 username: "",
+                role: "cliente",
                 email: "",
                 password: ""
             })

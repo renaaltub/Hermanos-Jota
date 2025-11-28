@@ -1,4 +1,6 @@
 const Producto = require('../models/Product');
+const streamifier = require('streamifier')
+const cloudinary = require('cloudinary').v2
 
 const getProducts =  async (req, res) => {
     const {limit} = req.query;
