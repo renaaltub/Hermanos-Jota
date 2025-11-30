@@ -55,6 +55,11 @@ function Navbar(){
                                 <Link to="/perfil" className='nav-link' onClick={() => setVisibilidad(false)} style={{fontSize: '1rem', color: 'var(--alabastro)'}}>
                                     Hola, {currentUser?.username}
                                 </Link>
+
+                                <Link to="/perfil" className='nav-link' onClick={() => setVisibilidad(false)} style={{fontSize: '1rem', color: 'var(--alabastro)'}}>
+                                    <button className='nav-mi-perfil'>Mi Perfil</button>
+                                </Link>
+
                                 <button onClick={handleLogout} className='nav-mi-perfil'>Cerrar Sesión</button>
                             </>
                         ) : (
