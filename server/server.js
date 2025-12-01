@@ -20,9 +20,7 @@ app.use("/img", express.static(path.join(__dirname, "public/img")));
 const PORT = process.env.PORT || 4000
 
 //Verifica que la única dirección desde la cual se conecte sea el front corriendo en el puerto 3000
-app.use(cors({
-  origin: 'https://hermanos-jota-ecwcsw3r5-renaaltubs-projects.vercel.app'
-}))
+app.use(cors())
 
 app.use(express.json())
 app.use(logger)
