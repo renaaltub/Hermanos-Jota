@@ -17,7 +17,7 @@ export default function ProductosRelacionados({ producto, titulo }) {
     data: productos,
     error,
     isLoading
-  } = useSWR('http://localhost:4000/api/productos', ProdRelacionados);
+  } = useSWR('https://hermanos-jota-ei35.onrender.com/api/productos', ProdRelacionados);
 
   // We'll compute the shuffled selection once per page load and keep it.
   const [seleccionados, setSeleccionados] = useState([]);

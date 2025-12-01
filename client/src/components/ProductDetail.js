@@ -22,7 +22,7 @@ export default function ProductDetail({ producto, onVolver }) {
     if (window.confirm(`¿Estás seguro de que deseas eliminar el producto: ${producto.nombre}?`)) {
       try {
 
-        const response = await fetch(`http://localhost:4000/api/productos/${producto._id}`, {
+        const response = await fetch(`https://hermanos-jota-ei35.onrender.com/api/productos/${producto._id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

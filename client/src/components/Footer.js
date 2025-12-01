@@ -11,7 +11,7 @@ function Footer(){
                 <Link to="/">
                     <div className='footer-logo'>
                         <div>
-                            <img src='http://localhost:4000/img/logoinvertido.svg' alt='Logo Hermanos Jota'/>
+                            <img src='https://hermanos-jota-ei35.onrender.com/img/logoinvertido.svg' alt='Logo Hermanos Jota'/>
                         </div>
                         <p className='footer-nombre-marca'>Hermanos JOTA</p>
                     </div>

@@ -108,7 +108,7 @@ export async function enviarFormulario({
 
         setLoading(true)
 
-        const respuesta = await fetch(`http://localhost:4000/api/productos`, {
+        const respuesta = await fetch(`https://hermanos-jota-ei35.onrender.com/api/productos`, {
             method: "POST",
             body: formData
         })
@@ -133,7 +133,7 @@ export async function enviarFormulario({
                 descripcion: "",
                 descripcionDestacado: "",
                 precio: "",
-                imagen: "http://localhost:4000/img/",
+                imagen: "https://hermanos-jota-ei35.onrender.com/img/",
                 materiales: "",
                 medidas: "",
                 acabado: "",

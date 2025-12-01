@@ -28,7 +28,7 @@ function Navbar(){
     return (
         <header>
             <Link to="/" className='logo' onClick={() => {setVisibilidad(false)}}>
-                <img src='http://localhost:4000/img/logoinvertido.svg' alt="Logo"/>
+                <img src='https://hermanos-jota-ei35.onrender.com/img/logoinvertido.svg' alt="Logo"/>
                 <p className='nombre-marca'>Hermanos JOTA</p>
             </Link>
 

@@ -22,7 +22,7 @@ export const mostrarIngresarContrasena = (emailUsuario) => {
         },
         preConfirm: async (passwordIngresada) => {
             try {
-                const response = await fetch('http://localhost:4000/api/usuarios/login', {
+                const response = await fetch('https://hermanos-jota-ei35.onrender.com/api/usuarios/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type':'application/json'
