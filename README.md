@@ -1,5 +1,5 @@
 # E-commerce Mueblería Hermanos Jota  
-**Consigna Final Sprints 5 y 6**
+**Consigna Final Sprints 7 y 8**
 
 ---
 
@@ -12,9 +12,11 @@
 ---
 
 ## Descripción General
-Proyecto de e-commerce **Mueblería Hermanos Jota**, desarrollado como parte de los **Sprints 5 y 6**.  
-Se trabajó sobre la entraga anterior, realizando una conexión con una base de datos de MongoDB para los productos.  
-El sistema permite visualizar productos, ver sus detalles, simular un carrito de compras, realizar consultas desde un formulario de contacto, crear productos y eliminarlos.
+Proyecto de e-commerce **Mueblería Hermanos Jota**, desarrollado como parte de los **Sprints 7 y 8**.  
+Se trabajó sobre la entraga anterior, implementamos el ciclo de vida completo de un usuario: registro, inicio de sesión y acceso a rutas
+protegidas. Gestionaremos el estado global de la aplicación de forma profesional con la Context API de React y, finalmente, desplegaremos 
+toda la aplicación en la nube para que sea públicamente accesible.
+Usuario de administrador en la entrega. 
 
 ---
 
@@ -62,8 +64,8 @@ Agregar en la carpeta server (backend) un archivo .env con las siguientes línea
   - Detalle de producto  
   - Formulario de contacto
   - Panel de administración
-  - Formulario de agregado de producto
-- Implementa un botón "Eliminar producto" en el detalle de cada uno (proximamente visible únicamente para los administradores).
+  - Formulario de agregado de producto, visible unicamente para los administradores.
+- Implementa un botón "Eliminar producto" en el detalle de cada uno visible únicamente para los administradores.
 - Simulación de carrito con contador global manejado en `App.js`.  
 - Estilos con diseño **responsive (Mobile First)** usando Flexbox y Grid.
 
@@ -91,3 +93,4 @@ Agregar en la carpeta server (backend) un archivo .env con las siguientes línea
 - Enfoque **modular y escalable** en Express (rutas, controladores, middlewares).  
 - **SPA en React** para mejorar la experiencia del usuario.
 - Productos e información relacionada almacenada en una base de datos de MongoDB Atlas.
+- Usuarios y permisos almacenados en una base de datos de MongoDB Atlas.
