@@ -27,7 +27,7 @@ Usuario de administrador en la entrega.
 ## Desarrollo (instalación y ejecución local)
 
 ### Clonado del repositorio
-- git clone https://github.com/juanmarsilli147/Hermanos-Jota.git
+- git clone https://github.com/renaaltub/Hermanos-Jota.git
 - cd Hermanos-Jota
 
 ### Declaración de variables de entorno
