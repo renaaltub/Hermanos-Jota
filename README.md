@@ -21,8 +21,8 @@ Usuario de administrador en la entrega.
 ---
 
 ## Producción
-- **Frontend:** https://hermanos-jota-theta.vercel.app/
-- **Backend:** http://localhost:4000/
+- **Frontend:** https://hermanos-jota-seven.vercel.app/
+- **Backend:** https://hermanos-jota-ei35.onrender.com/
 
 ## Desarrollo (instalación y ejecución local)
 
