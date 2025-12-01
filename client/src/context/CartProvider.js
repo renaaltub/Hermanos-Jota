@@ -24,12 +24,12 @@ export const CartProvider = ({children}) => {
             if (isLoggedIn && authToken){
                 try{
                     const localItems = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || '[]');
-                    let endpoint = 'http://localhost:4000/api/cart';
+                    let endpoint = 'https://hermanos-jota-ei35.onrender.com/api/cart';
                     let method = 'GET';
                     let body = null;
 
                     if (localItems.length > 0){
-                        endpoint = 'http://localhost:4000/api/cart/sync';
+                        endpoint = 'https://hermanos-jota-ei35.onrender.com/api/cart/sync';
                         method = 'POST';
                         body = JSON.stringify({
                             items: localItems.map(item => ({
@@ -84,7 +84,7 @@ export const CartProvider = ({children}) => {
         if (isLoggedIn && authToken) {
             const guardarEnDB = async () => {
                 try {
-                    await fetch('http://localhost:4000/api/cart', {
+                    await fetch('https://hermanos-jota-ei35.onrender.com/api/cart', {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',

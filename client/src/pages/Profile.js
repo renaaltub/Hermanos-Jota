@@ -22,7 +22,7 @@ const Profile = () => {
         if (activeTab === 'orders' && authToken) {
             setLoadingOrders(true);
             console.log("Fetching orders with token:", authToken);
-            fetch('http://localhost:4000/api/pedidos/mis-pedidos', {
+            fetch('https://hermanos-jota-ei35.onrender.com/api/pedidos/mis-pedidos', {
                 headers: {
                     'Authorization': `Bearer ${authToken}`
                 }

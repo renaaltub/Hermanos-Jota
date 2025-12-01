@@ -15,7 +15,7 @@ export default function Catalogo() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch("http://localhost:4000/api/productos");
+        const response = await fetch("https://hermanos-jota-ei35.onrender.com/api/productos");
         if (!response.ok) throw new Error("Error al cargar productos");
         const data = await response.json();
         setProductos(data);

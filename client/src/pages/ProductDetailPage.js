@@ -19,7 +19,7 @@ export default function ProductDetailPage() {
       setError(null);
       try {
         // 2. Llama a tu API con el ID numérico
-        const response = await fetch(`http://localhost:4000/api/productos/${id}`);
+        const response = await fetch(`https://hermanos-jota-ei35.onrender.com/api/productos/${id}`);
         if (!response.ok) {
           throw new Error('Producto no encontrado');
         }
