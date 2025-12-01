@@ -58,7 +58,7 @@ function Carrito(){
         }
     
         try{
-            const response = await fetch('http://localhost:4000/api/pedidos', {
+            const response = await fetch('https://hermanos-jota-ei35.onrender.com/api/pedidos', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

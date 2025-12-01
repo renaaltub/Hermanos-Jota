@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 4000
 
 //Verifica que la única dirección desde la cual se conecte sea el front corriendo en el puerto 3000
 app.use(cors({
-  origin: 'http://localhost:3000'
+  origin: 'https://hermanos-jota-seven.vercel.app/'
 }))
 
 app.use(express.json())
